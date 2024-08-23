@@ -1,0 +1,70 @@
+body{
+    margin-bottom: 0;
+    background-color: white;
+    overflow-y: scroll; /* Always show vertical scrollbar */
+}
+
+h1{
+    color: black;
+    margin-bottom: 0;
+}
+
+.table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, 
+.table td{
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid grey;
+}
+
+.table th{
+    background-color: lightblue;
+}
+
+.table tbody tr{
+    background-color: white;
+}
+
+/* for remove the space below the nav bar */
+nav ul{
+    margin-bottom: 0;
+}
+
+button[type="submit"]{
+    color: black;
+    border: none;
+}
+
+/* button[type="submit"]:hover{
+    background-color: #007bff;
+} */
+
+button[type="button"]{
+    color: black;
+    border: none;
+}
+
+/* button[type="button"]:hover{
+    background-color: #007bff;
+} */
+
+.page-info{
+    color: black;
+    margin-left: 115px;
+}
+
+.pagination{
+    color: black;
+}
+
+td:nth-child(5), th:nth-child(5){
+    width: 350px;
+}
+
+td:nth-child(6), th:nth-child(6){
+    width: 350px;
+}

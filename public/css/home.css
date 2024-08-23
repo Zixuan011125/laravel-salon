@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* Slideshow container */
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    height: 720px; 
+    overflow: hidden;
+}
+
+.mySlides {
+    position: absolute; /* Position slides relative to their container */
+    width: 100%; /* Adjust the width as needed */
+    height: 100%; /* Set a fixed height for the container */
+    top: 0;
+    left: 0;
+}
+
+.mySlides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+}
+
+@keyframes fade {
+    from {
+        opacity: .4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.container-home {
+    background: linear-gradient(#F9ABA4, #EFECEC);
+}
+
+.container-home h1 {
+    color: black;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+    font-size: 28px;
+    padding: 30px;
+}
+
+.container-home h2 {
+    color: black;
+    text-align: center;
+    font-size: 22px;
+    padding: 43px;
+    text-transform: uppercase;
+}
+
+.container-booked-images {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    align-items: center; /* Center items vertically */
+}
+
+.container-booked {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the start (left) */
+    text-align: left; /* Align text to the left */
+    background-color: rgba(255, 255, 255, 0.8); /* White with some transparency */
+    padding: 40px;
+    margin-left: 50px; /* Add left margin to create spacing from the left edge */
+    border-radius: 10px;
+    z-index: 1; /* Ensure content appears above the image */
+    /* border: 2px solid #333;
+    box-sizing: border-box; */
+    max-width: 40%; /* Ensure the content doesn't take up more than 40% of the container's width */
+}
+
+.container-booked h1 {
+    margin: 0;
+    font-size: 2.5em; /* Slightly larger font size */
+    color: #333; /* Black text color */
+    padding-bottom: 20px; /* Reduce padding */
+}
+
+.container-booked p {
+    font-size: 1.25em; /* Adjust font size */
+    color: #333; /* Match the color of the heading */
+    font-weight: 700;
+    padding-bottom: 20px;
+}
+
+.container-booked .button {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 30px;
+    border: 2px solid #007bff; /* Match border color with background */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.container-booked .button:hover {
+    background-color: #0056b3;
+    border-color: #0056b3; /* Change border color on hover */
+}
+
+.container-booked-img {
+    flex: 1; /* Allow the image container to take up the remaining space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container-booked-img img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain; /* Ensures the image maintains its aspect ratio */
+    border-radius: 10px; /* Optional: adds rounded corners to the image */
+}
+
+.text {
+    text-align: center; /* Center the text */
+    padding: 40px; /* Add padding for spacing */
+    background-color: #f7f7f7; /* Light background color */
+}
+
+.text h3 {
+    font-size: 2em; /* Adjust the font size */
+    font-weight: bold; /* Make the text bold */
+    margin-bottom: 20px; /* Add space below the heading */
+    color: #333; /* Dark text color */
+    text-transform: uppercase; /* Transform text to uppercase */
+}
+
+.text p {
+    font-size: 1.25em; /* Adjust the font size */
+    color: #333; /* Dark text color */
+    line-height: 1.5; /* Adjust line height for better readability */
+    max-width: 800px; /* Maximum width for the paragraph text */
+    margin: 0 auto; /* Center the paragraph text */
+}
+
+@media (max-width: 768px) {
+    .slideshow-container {
+        height: auto; /* Let the height adjust automatically on smaller screens */
+    }
+
+    .mySlides {
+        position: relative; /* Change positioning for better stacking on small screens */
+        height: auto; /* Adjust height for smaller screens */
+    }
+
+    .mySlides img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .container-booked-images {
+        position: relative;
+        height: auto; /* Let the height adjust automatically on smaller screens */
+        width: 100%;
+        max-height: 100vh;
+        overflow: hidden;
+    }
+
+    .container-booked-images img {
+        position: relative;  /* Adjust position to relative for better responsiveness */
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1; 
+    }
+
+    .container-booked {
+        width: 90%; /* Make the container-booked more responsive */
+        padding: 10px;
+    }
+
+    .container-booked h1 {
+        font-size: 1.5em;
+        padding-bottom: 20px;
+    }
+
+    .container-booked p {
+        font-size: 16px;
+        padding-bottom: 10px;
+    }
+
+    .container-booked .button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}

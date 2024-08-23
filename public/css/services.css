@@ -1,0 +1,83 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+    overflow-x: hidden;
+}
+
+img{
+    max-width: 100%;
+    height: 100px;
+}
+
+.services-container{
+    /*background: linear-gradient(#ff6ec4, #7873f5);*/
+    background: linear-gradient(#E5BDF6, #D8DEDE);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-size: 21px;
+}
+
+.services-container h1{
+    text-align: center;
+    color: black;
+    margin-bottom: 100px;
+}
+
+.services-container h3{
+    color: black;
+    margin-bottom: 20px;
+}
+
+.services-container table{
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 800px; /* Adjust the max-width as needed */
+    /* margin-bottom is to give some spave before every new main service began */
+    margin-bottom: 100px; 
+}
+
+.services-container tr{
+    text-align: left;
+}
+
+.services-container th, td {
+    padding: 10px;
+    text-align: left;
+    color: black;
+    /* Need this width to align the all the Cost column */
+    width: 70%;
+}
+
+.services-bg{
+    width: 100%;
+    height: 600px;
+}
+
+.services-bg img{
+    width: 100%;
+    height: 600px;
+}
+
+/* CSS for the Tooltip */
+.tooltip-inner{
+    background-color: #fff;
+    color: black;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(3, 151, 243, 0.1);
+}
+
+.tooltip.bs-tooltip-auto[x-placement^=top] .arrow::before,
+.tooltip.bs-tooltip-top .arrow::before {
+    border-top-color: #ccc; /* Arrow color for top placement */
+}
+
+.fas.fa-info-circle {
+    color: violet;
+}
