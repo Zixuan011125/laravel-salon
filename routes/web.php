@@ -108,3 +108,4 @@ Route::get('/booked-hairCutters', [HairCutterController::class, 'getBookHairCutt
 
 // Route for DataTables
 Route::get('/table-of-services', [ServicesController::class, 'tableServices'])->name('tableServices');
+Route::get('/table-of-sub-services', [SubServicesController::class, 'tableSubServices'])->name('tableSubServices');

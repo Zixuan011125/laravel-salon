@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Services;
 use App\Models\SubServices;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Contracts\DataTable;
+use Yajra\DataTables\Facades\DataTables;
 
 class SubServicesController extends Controller
 {
@@ -64,12 +66,9 @@ class SubServicesController extends Controller
         return redirect()->route('showAllSubServices')->with('success', 'Sub Service updated successfully');
     }
 
-    // // For the customer side (Service List)
-    // public function showCustomerServices(){
-    //     // Fetch sub services along with their related main services
-    //     $subServices = SubServices::with('service')->get();
+        public function tableSubServices(){
+            $query = SubServices::select('id', 'subName', 'subCost');
 
-    //     // Return a view for the customer side, passing the data of services list
-    //     return view('services', compact('subServices'));
-    // }
+            return DataTables::of($query)->make(true);
+        }
 }
