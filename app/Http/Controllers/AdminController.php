@@ -39,10 +39,9 @@ class AdminController extends Controller
     }
 
     public function adminLogout(Request $request){
-        // Clear the session
-        $request->session()->flush();
+        // Destroy the session data
+        Session::flush();
 
-        // Redirect to the login page 
-        return redirect()->route('admin/login');
+        return redirect()->route('adminLogin');
     }
 }

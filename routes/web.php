@@ -57,7 +57,8 @@ Route::get('/logout',[RegisterController::class, 'logout'])->name('logout');
 
 Route::get('/go-admin-login',[AdminController::class,'adminLogin'])->name('adminLogin');
 Route::post('/submit-admin-login',[AdminController::class,'submitAdminLogin'])->name('submitAdminLogin');
-Route::post('/admin/logout', [AdminController::class, 'adminLogout'])->name('adminLogout');
+Route::get('/admin/logout', [AdminController::class, 'adminLogout'])->name('adminLogout');
+
 
 Route::get('/go-dashboard', function(){
     return view('admin/dashboard');

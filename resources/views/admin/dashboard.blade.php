@@ -264,7 +264,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                <a href="{{route('showAllSubServices')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Sub Services List</p>
                 </a>
@@ -437,7 +437,7 @@
             </ul> --}}
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('showAllInvoices')}}" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Invoices
@@ -467,7 +467,7 @@
           </li>
           {{-- <li class="nav-header">EXAMPLES</li> --}}
           <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
+            <a href="{{route('serviceReports')}}" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Reports
@@ -476,7 +476,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
+            <a href="{{route('showAllEmployees')}}" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
                 Employees
@@ -484,7 +484,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/kanban.html" class="nav-link">
+            <a href="{{route('showProducts')}}" class="nav-link">
               <i class="nav-icon fas fa-columns"></i>
               <p>
                 Products
@@ -492,7 +492,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/kanban.html" class="nav-link">
+            <a href="{{route('adminLogout')}}" class="nav-link">
               <i class="nav-icon fas fa-columns"></i>
               <p>
                 Logout
