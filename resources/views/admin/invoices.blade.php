@@ -66,7 +66,14 @@
                                             @endforeach
 
                                             <!-- Display products -->
-                                           
+                                           @foreach ($products as $index => $product)
+                                               <tr>
+                                                    <td>{{ $index + count($subServices) + 1 }}</td>
+                                                    <td>{{ $product->name }}</td>
+                                                    <td>{{ $product->quantity }}</td>
+                                                    <td class="text-end">RM {{ number_format($product->price * $product->quantity, 2) }}</td>
+                                               </tr>
+                                           @endforeach
                                         </tbody>
                                     </table>
 

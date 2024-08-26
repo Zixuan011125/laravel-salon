@@ -37,4 +37,12 @@ class AdminController extends Controller
             return redirect()->back();
         }
     }
+
+    public function adminLogout(Request $request){
+        // Clear the session
+        $request->session()->flush();
+
+        // Redirect to the login page 
+        return redirect()->route('admin/login');
+    }
 }

@@ -73,7 +73,7 @@
                         render: function(data, type, row){
                             // return '<a href="' + '{{ route("assignServicesForm", ":id") }}'.replace(':id', row.id) + '" class="btn btn-primary btn-sm">Assign Services</a>';
                             return '<a href="' + '{{ route("sellProductsForm", ":id") }}'.replace(':id', row.id) + '" class="btn btn-primary btn-sm">Sold Products</a>' +
-                                   '<a href="' + '{{ route("generateInvoices", ":id") }}'.replace(':id', row.id) + '" class="btn btn-primary btn-sm">Generate Invoices</a>';
+                                   '&nbsp;&nbsp;&nbsp;<a href="' + '{{ route("generateInvoices", ":id") }}'.replace(':id', row.id) + '" class="btn btn-primary btn-sm">Generate Invoices</a>';
                         }
                     }
                 ]

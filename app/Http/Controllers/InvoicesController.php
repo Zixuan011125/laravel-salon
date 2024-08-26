@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Invoices;
 use App\Models\SubServices;
 use App\Models\Customers;
+use App\Models\CustomersProducts;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -39,6 +40,19 @@ class InvoicesController extends Controller
         // $time = request()->time;
         // $cost = request()->time;
 
+        // Fetch products sold to the customer
+        $products = CustomersProducts::where('customer_id', $customer_id)
+            ->join('products', 'customers_products.product_id', '=', 'products.id')
+            ->select('products.name', 'products.price', 'customers_products.quantity_sold as quantity')
+            ->get();
+        
+        // Add the cost of products to the total cost
+        $totalProductCost = $products->sum(function ($product){
+            return $product->price * $product->quantity;
+        });
+
+        $totalCost += $totalProductCost;
+
         // Create and save the invoices in Invoices object
         $invoices = new Invoices();
         // $invoices->name = $customer->name;
@@ -57,6 +71,7 @@ class InvoicesController extends Controller
         return view('admin/invoices', [
             'customer' => $customer,
             'subServices' => $subServices,
+            'products' => $products,
             'totalCost' => $totalCost,
             'invoiceNumber' => $invoices_number,
             'date' => now()->format('d M Y, h:i A')
