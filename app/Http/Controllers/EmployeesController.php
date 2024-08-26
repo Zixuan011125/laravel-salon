@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Employees;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class EmployeesController extends Controller
 {
@@ -46,7 +47,7 @@ class EmployeesController extends Controller
         $employee->phone = $request->input('phone');
 
         $employee->save();
-        return redirect()->route('showAllEmployees')->with('success', 'Employee updated successfully');
+        return redirect()->route('showAllEmployees');
     }
 
     public function deleteEmployees(Request $request){
@@ -57,5 +58,11 @@ class EmployeesController extends Controller
         }
 
          return redirect()->route('showAllEmployees')->with('success', 'Employee deleted successfully');
+    }
+
+    public function tableEmployees(){
+        $query = Employees::select('id', 'name', 'role', 'salary', 'phone');
+
+        return DataTables::of($query)->make(true);
     }
 }

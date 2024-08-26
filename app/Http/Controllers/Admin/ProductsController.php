@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Products;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Yajra\DataTables\Facades\DataTables;
 
 class ProductsController extends Controller
 {
@@ -109,5 +110,21 @@ class ProductsController extends Controller
 
         // Pass the products data to the view
         return view('products', compact('products'));
+    }
+
+    public function tableProducts(){
+        $query = Products::select('id', 'name', 'image', 'price', 'quantity');
+
+        return DataTables::of($query)->make(true);
+    }
+
+    public function sellProductsForm(){
+        $product = Products::all();
+        
+        return view('admin/sell-products', compact('product'));
+    }
+
+    public function sellProducts(){
+        //
     }
 }

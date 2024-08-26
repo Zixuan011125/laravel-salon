@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AddContactController;
 use App\Http\Controllers\Admin\AdminAppointmentsController;
+use App\Http\Controllers\Admin\CustomersController;
 use App\Http\Controllers\Admin\CustomerSideServicesController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AppointmentsController;
@@ -10,7 +11,9 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\HairCutterController;
 use App\Http\Controllers\Admin\ProductsController;
+use App\Http\Controllers\InvoicesController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\SubServicesController;
 use App\Http\Controllers\timeSlotController;
@@ -94,7 +97,7 @@ Route::post('submit-appointments',[AppointmentsController::class, 'bookAppointme
 
 // Route for appointments of admin side
 Route::get('/appointments-list',[AdminAppointmentsController::class,'showAppointmentsList'])->name('showAppointmentsList');
-Route::post('/confirm-appointments',[AdminAppointmentsController::class,'confirmAppointments'])->name('confirmAppointments');
+Route::get('/appointment/{id}/confirm',[AdminAppointmentsController::class,'confirmAppointments'])->name('confirmAppointments');
 
 // Route for products of customer side
 Route::post('/add-products',[ProductsController::class,'addProducts'])->name('addProducts');
@@ -104,8 +107,31 @@ Route::get('/update/{id}/edit',[ProductsController::class,'showUpdateProductsFor
 Route::post('/update-products/{id}',[ProductsController::class,'updateProducts'])->name('updateProducts');
 Route::post('/delete-products',[ProductsController::class,'deleteProducts'])->name('deleteProducts');
 
+// Route for products of admin side
+Route::get('/sell-products-form/{id}', [ProductsController::class, 'sellProductsForm'])->name('sellProductsForm');
+Route::post('/sell-products/{id}', [ProductsController::class, 'sellProducts'])->name('sellProducts');
+
 Route::get('/booked-hairCutters', [HairCutterController::class, 'getBookHairCutters'])->name('getBookHairCutters');
 
 // Route for DataTables
 Route::get('/table-of-services', [ServicesController::class, 'tableServices'])->name('tableServices');
 Route::get('/table-of-sub-services', [SubServicesController::class, 'tableSubServices'])->name('tableSubServices');
+Route::get('/table-of-appointments', [AdminAppointmentsController::class, 'tableAppointments'])->name('tableAppointments');
+Route::get('/table-of-customers', [CustomersController::class, 'tableCustomers'])->name('tableCustomers');
+Route::get('/table-of-invoices', [InvoicesController::class, 'tableInvoices'])->name('tableInvoices');
+Route::get('/table-of-employees', [EmployeesController::class, 'tableEmployees'])->name('tableEmployees');
+Route::get('/table-of-products', [ProductsController::class, 'tableProducts'])->name('tableProducts');
+
+Route::get('/show-customers', [CustomersController::class, 'showCustomers'])->name('showCustomers');
+// Route::get('/assignServicesForm', [CustomersController::class, 'assignServicesForm'])->name('assignServicesForm');
+Route::get('/assign-services/{id}/assign', [CustomersController::class, 'assignServicesForm'])->name('assignServicesForm');
+Route::post('/assign-services/{id}', [CustomersController::class, 'assignServices'])->name('assignServices');
+
+Route::get('/generate-invoice/{customer_id}', [InvoicesController::class, 'generateInvoices'])->name('generateInvoices');
+
+Route::get('/customer/{customer_id}/invoices', [InvoicesController::class, 'showCustomerInvoices'])->name('showCustomerInvoices');
+// Route::get('/invoice/{invoice_id}/view', [InvoicesController::class, 'showInvoice'])->name('showInvoice');
+
+Route::get('/invoices-list', [InvoicesController::class, 'showAllInvoices'])->name('showAllInvoices');
+
+Route::get('/service-reports', [ReportsController::class, 'serviceReports'])->name('serviceReports');

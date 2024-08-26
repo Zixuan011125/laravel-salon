@@ -269,42 +269,6 @@
                   <p>Sub Services List</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="pages/layout/boxed.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Boxed</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fixed Sidebar</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar-custom.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fixed Sidebar <small>+ Custom Area</small></p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-topnav.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fixed Navbar</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-footer.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fixed Footer</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Collapsed Sidebar</p>
-                </a>
-              </li>
             </ul>
           </li>
           <li class="nav-item">
@@ -343,14 +307,14 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('showAppointmentsList')}}" class="nav-link">
               <i class="nav-icon fas fa-tree"></i>
               <p>
-                UI Elements
-                <i class="fas fa-angle-left right"></i>
+                Appointments
+                {{-- <i class="fas fa-angle-left right"></i> --}}
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            {{-- <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="pages/UI/general.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -399,17 +363,17 @@
                   <p>Ribbons</p>
                 </a>
               </li>
-            </ul>
+            </ul> --}}
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
+            <a href="{{route('showCustomers')}}" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>  
               <p>
-                Forms
-                <i class="fas fa-angle-left right"></i>
+                Customers
+                {{-- <i class="fas fa-angle-left right"></i> --}}
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            {{-- <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="pages/forms/general.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -434,17 +398,17 @@
                   <p>Validation</p>
                 </a>
               </li>
-            </ul>
+            </ul> --}}
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('showAllInvoices')}}" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                Tables
-                <i class="fas fa-angle-left right"></i>
+                Invoices
+                {{-- <i class="fas fa-angle-left right"></i> --}}
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            {{-- <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="pages/tables/simple.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -463,31 +427,31 @@
                   <p>jsGrid</p>
                 </a>
               </li>
-            </ul>
+            </ul> --}}
           </li>
-          <li class="nav-header">EXAMPLES</li>
+          {{-- <li class="nav-header">EXAMPLES</li> --}}
           <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
+            <a href="{{route('serviceReports')}}" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
-                Calendar
-                <span class="badge badge-info right">2</span>
+                Reports
+                {{-- <span class="badge badge-info right">2</span> --}}
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
+            <a href="{{route('showAllEmployees')}}" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
-                Gallery
+                Employees
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/kanban.html" class="nav-link">
+            <a href="{{route('showProducts')}}" class="nav-link">
               <i class="nav-icon fas fa-columns"></i>
               <p>
-                Kanban Board
+                Products
               </p>
             </a>
           </li>
@@ -496,10 +460,10 @@
               <i class="nav-icon far fa-envelope"></i>
               <p>
                 Mailbox
-                <i class="fas fa-angle-left right"></i>
+                {{-- <i class="fas fa-angle-left right"></i> --}}
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            {{-- <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="pages/mailbox/mailbox.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -518,7 +482,7 @@
                   <p>Read</p>
                 </a>
               </li>
-            </ul>
+            </ul> --}}
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">

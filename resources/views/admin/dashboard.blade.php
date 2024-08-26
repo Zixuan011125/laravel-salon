@@ -343,14 +343,14 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('showAppointmentsList')}}" class="nav-link">
               <i class="nav-icon fas fa-tree"></i>
               <p>
-                UI Elements
-                <i class="fas fa-angle-left right"></i>
+                Appointments
+                {{-- <i class="fas fa-angle-left right"></i> --}}
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            {{-- <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="pages/UI/general.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -399,17 +399,17 @@
                   <p>Ribbons</p>
                 </a>
               </li>
-            </ul>
+            </ul> --}}
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('showCustomers')}}" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                Forms
-                <i class="fas fa-angle-left right"></i>
+                Customers
+                {{-- <i class="fas fa-angle-left right"></i> --}}
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            {{-- <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="pages/forms/general.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -434,7 +434,7 @@
                   <p>Validation</p>
                 </a>
               </li>
-            </ul>
+            </ul> --}}
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
