@@ -64,6 +64,9 @@
                                                     <td class="text-end">RM {{ number_format($service->subCost, 2) }}</td> <!-- Use 'subCost' here -->
                                                 </tr>
                                             @endforeach
+
+                                            <!-- Display products -->
+                                           
                                         </tbody>
                                     </table>
 

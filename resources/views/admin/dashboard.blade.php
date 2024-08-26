@@ -41,12 +41,12 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
+      {{-- <li class="nav-item d-none d-sm-inline-block">
         <a href="index3.html" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
-      </li>
+      </li> --}}
     </ul>
 
     <!-- Right navbar links -->
@@ -238,7 +238,7 @@
               </li>
             </ul> --}}
           </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
@@ -246,14 +246,14 @@
                 <span class="right badge badge-danger">New</span>
               </p>
             </a>
-          </li>
+          </li> --}}
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Services
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
+                {{-- <span class="badge badge-info right">6</span> --}}
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -268,7 +268,7 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>Sub Services List</p>
                 </a>
-              </li>
+              {{-- </li>
               <li class="nav-item">
                 <a href="pages/layout/boxed.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -304,10 +304,10 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>Collapsed Sidebar</p>
                 </a>
-              </li>
+              </li> --}}
             </ul>
           </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
@@ -341,7 +341,7 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </li> --}}
           <li class="nav-item">
             <a href="{{route('showAppointmentsList')}}" class="nav-link">
               <i class="nav-icon fas fa-tree"></i>
@@ -440,11 +440,11 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                Tables
-                <i class="fas fa-angle-left right"></i>
+                Invoices
+                {{-- <i class="fas fa-angle-left right"></i> --}}
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            {{-- <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="pages/tables/simple.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -463,15 +463,15 @@
                   <p>jsGrid</p>
                 </a>
               </li>
-            </ul>
+            </ul> --}}
           </li>
-          <li class="nav-header">EXAMPLES</li>
+          {{-- <li class="nav-header">EXAMPLES</li> --}}
           <li class="nav-item">
             <a href="pages/calendar.html" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
-                Calendar
-                <span class="badge badge-info right">2</span>
+                Reports
+                {{-- <span class="badge badge-info right">2</span> --}}
               </p>
             </a>
           </li>
@@ -479,7 +479,7 @@
             <a href="pages/gallery.html" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
-                Gallery
+                Employees
               </p>
             </a>
           </li>
@@ -487,15 +487,23 @@
             <a href="pages/kanban.html" class="nav-link">
               <i class="nav-icon fas fa-columns"></i>
               <p>
-                Kanban Board
+                Products
               </p>
             </a>
           </li>
           <li class="nav-item">
+            <a href="pages/kanban.html" class="nav-link">
+              <i class="nav-icon fas fa-columns"></i>
+              <p>
+                Logout
+              </p>
+            </a>
+          </li>
+          {{-- <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-envelope"></i>
               <p>
-                Mailbox
+                products
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -840,7 +848,7 @@
               <p>Informational</p>
             </a>
           </li>
-        </ul>
+        </ul> --}}
       </nav>
       <!-- /.sidebar-menu -->
     </div>
