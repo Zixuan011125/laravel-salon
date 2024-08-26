@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    @include('admin/sidebar')
+    {{-- @include('admin/sidebar') --}}
     <div class="wrapper">
         <div class="content-wrapper">
             <h1>Update Employees</h1>

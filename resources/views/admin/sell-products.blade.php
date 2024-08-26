@@ -9,7 +9,8 @@
 </head>
 
 <body>
-    <form action="{{route('sellProducts', [])}}" method="post">
+    {{-- @include('admin/sidebar') --}}
+    <form action="{{route('sellProducts', ['customer_id' => $customer_id])}}" method="post">
         @csrf
         <label for="product_id">Select Product:</label>
         <select name="product_id" id="product_id">

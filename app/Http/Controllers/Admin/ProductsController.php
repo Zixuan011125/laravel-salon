@@ -117,14 +117,4 @@ class ProductsController extends Controller
 
         return DataTables::of($query)->make(true);
     }
-
-    public function sellProductsForm(){
-        $product = Products::all();
-        
-        return view('admin/sell-products', compact('product'));
-    }
-
-    public function sellProducts(){
-        //
-    }
 }

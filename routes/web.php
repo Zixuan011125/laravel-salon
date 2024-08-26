@@ -11,6 +11,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\HairCutterController;
 use App\Http\Controllers\Admin\ProductsController;
+use App\Http\Controllers\CustomersProductsController;
 use App\Http\Controllers\InvoicesController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ReportsController;
@@ -108,8 +109,8 @@ Route::post('/update-products/{id}',[ProductsController::class,'updateProducts']
 Route::post('/delete-products',[ProductsController::class,'deleteProducts'])->name('deleteProducts');
 
 // Route for products of admin side
-Route::get('/sell-products-form/{id}', [ProductsController::class, 'sellProductsForm'])->name('sellProductsForm');
-Route::post('/sell-products/{id}', [ProductsController::class, 'sellProducts'])->name('sellProducts');
+Route::get('/sell-products-form/{customer_id}', [CustomersProductsController::class, 'sellProductsForm'])->name('sellProductsForm');
+Route::post('/sell-products/{customer_id}', [CustomersProductsController::class, 'sellProducts'])->name('sellProducts');
 
 Route::get('/booked-hairCutters', [HairCutterController::class, 'getBookHairCutters'])->name('getBookHairCutters');
 
