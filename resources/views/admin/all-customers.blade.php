@@ -9,7 +9,7 @@
     
     <!-- DataTables CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap5.min.css">
-    <title>Customer Lists</title>
+    <title>Customer Listsbbyny</title>
 </head>
 <body>
     @include('admin/sidebar')
