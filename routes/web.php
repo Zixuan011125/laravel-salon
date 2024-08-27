@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AddContactController;
 use App\Http\Controllers\Admin\AdminAppointmentsController;
 use App\Http\Controllers\Admin\CustomersController;
@@ -141,3 +142,5 @@ Route::get('/invoices-list', [InvoicesController::class, 'showAllInvoices'])->na
 Route::get('/service-reports', [ReportsController::class, 'serviceReports'])->name('serviceReports');
 
 Route::get('/dashboard', [AdminController::class, 'dashboardAdmin'])->name('dashboardAdmin');
+
+Route::get('/about-us', [AboutController::class, 'showAboutUs'])->name('showAboutUs');

@@ -14,7 +14,7 @@
             <li><a href="{{ route('home') }}">Home</a></li>
             <li><a href="{{ route('services') }}">Services</a></li>
             <li><a href="{{ route('products') }}">Products</a></li>
-            <li><a href="">About</a></li>
+            <li><a href="{{route('showAboutUs')}}">About</a></li>
             <li><a href="{{ route('showCalendarDate') }}">Booking</a></li>
             {{-- <li><a href="">Reviews</a></li> --}}
             @if(session('user'))

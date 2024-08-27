@@ -6,11 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/appointments.css">
+    <style>
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
     <title>Appointments Form</title>
 </head>
 
 <body>
     @include('header')
+    <br>
     <h1>Please fill in the appointments form</h1>
     <div class="appointments-container">
         <form action="{{ route('bookAppointments') }}" method="post">
@@ -41,7 +52,7 @@
             <br>
             <label for="time">Time:</label>
             <input type="text" name="time" value="{{ $timeSlot }}" readonly>
-            <br>
+            <br><br>
             <button type="submit">Book Appointment</button>
         </form>
     </div>
