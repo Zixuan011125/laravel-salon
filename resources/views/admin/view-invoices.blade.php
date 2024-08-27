@@ -57,12 +57,22 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($subServices as $index => $service)
+                                            @foreach ($subServices as $service)
                                                 <tr>
-                                                    <td>{{ $index + 1 }}</td>
-                                                    <td>{{ $invoice->subName }}</td>
+                                                    <td>{{ $loop-> iteration }}</td>
+                                                    <td>{{ $service->subName }}</td>
                                                     <td>1</td>
                                                     <td class="text-end">RM {{ number_format($service->subCost, 2) }}</td> <!-- Use 'subCost' here -->
+                                                </tr>
+                                            @endforeach
+
+                                            <!-- Display products -->
+                                            @foreach ($products as $product)
+                                                <tr>
+                                                    <td>{{$loop->iteration}}</td>
+                                                    <td>{{$product->name}}</td>
+                                                    <td>{{$product->quantity}}</td>
+                                                    <td class="text-end">RM {{number_format($product->price * $product->quantity, 2)}}</td>
                                                 </tr>
                                             @endforeach
                                         </tbody>

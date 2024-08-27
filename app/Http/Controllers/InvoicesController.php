@@ -102,16 +102,27 @@ class InvoicesController extends Controller
         // $totalCost = $invoice->cost;
 
         // Fetch the data from invoices_services table
-        $subServices = Invoices_Services::where('invoices_services.id', $id)
+        $subServices = Invoices_Services::where('invoices_id', $id)
             ->join('sub_services', 'invoices_services.sub_services_id', '=', 'sub_services.id')
             ->select('sub_services.subName', 'sub_services.subCost')
             ->get();
 
+        // Fetch products sold to the customer
+        $products = CustomersProducts::where('customer_id', $invoice->customer_id)
+            ->join('products', 'customers_products.product_id', '=', 'products.id')
+            ->select('products.name', 'products.price', 'customers_products.quantity_sold as quantity')
+            ->get();
+
+        // dd($id);
+
         // Extract specific invoice details
         $date = $invoice->date;
+        
         $invoiceNumber = $invoice->invoices_number;
+       
+        // $subServices = $invoice->subServices;
         $totalCost = $invoice->cost;
         
-        return view('admin/view-invoices', compact('invoice', 'date', 'invoiceNumber', 'subServices', 'totalCost'));
+        return view('admin/view-invoices', compact('invoice', 'date', 'invoiceNumber', 'subServices', 'totalCost', 'products'));
     }
 }
