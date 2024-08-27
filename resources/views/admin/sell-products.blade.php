@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    @include('admin/sidebar')
+    {{-- @include('admin/sidebar') --}}
     <form action="{{route('sellProducts', ['customer_id' => $customer_id])}}" method="post">
         @csrf
         <label for="product_id">Select Product:</label>
