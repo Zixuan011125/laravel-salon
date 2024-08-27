@@ -75,7 +75,8 @@
                         name: 'action', 
                         render: function(data, type, row) {
                             // return '<a href="/invoice/' + row.id + '/view" class="btn btn-primary btn-sm">View Details</a>';
-                            return '<a href="/customer/' + row.customer_id + '/invoices" class="btn btn-primary btn-sm">View Invoices</a>';
+                            return '<a href="' + '{{ route("showCustomerInvoices", ":id") }}'.replace(':id', row.id) + '" class="btn btn-primary btn-sm">View Invoices</a>';
+                            // return '<a href="/customer/' + row.customer_id + '/invoices" class="btn btn-primary btn-sm">View Invoices</a>';
                         }
                     }
                 ]

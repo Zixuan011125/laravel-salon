@@ -6,7 +6,9 @@ use App\Models\Invoices;
 use App\Models\SubServices;
 use App\Models\Customers;
 use App\Models\CustomersProducts;
+use App\Models\Invoices_Services;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 
 class InvoicesController extends Controller
@@ -21,31 +23,19 @@ class InvoicesController extends Controller
         // Generate a random invoice number
         $invoices_number = 'INV-' . strtoupper(uniqid());
 
-        // Calculate the cost from subServices
-
-        // Split the comma-separated string into an array
-        $services = explode(',', $customer->services);
-
         // Fetch the sub-services using whereIn with the array of service IDs
-        $subServices = SubServices::whereIn('id', $services)->get();
+        $services = $customer->services;  
+        $subServices = SubServices::whereIn('id', explode(',', $services))->get();
 
-        // This is for calculate the total cost using the subCost column
+        // Calculate the total cost using the subCost column
         $totalCost = $subServices->sum('subCost');
-
-        // $name = request()->name;
-        // $customer_id = request()->customer_id;
-        // $invoices_number = request()->invoices_number;
-        // $services = request()->services;
-        // $date = request()->date;
-        // $time = request()->time;
-        // $cost = request()->time;
 
         // Fetch products sold to the customer
         $products = CustomersProducts::where('customer_id', $customer_id)
             ->join('products', 'customers_products.product_id', '=', 'products.id')
             ->select('products.name', 'products.price', 'customers_products.quantity_sold as quantity')
             ->get();
-        
+
         // Add the cost of products to the total cost
         $totalProductCost = $products->sum(function ($product){
             return $product->price * $product->quantity;
@@ -53,19 +43,22 @@ class InvoicesController extends Controller
 
         $totalCost += $totalProductCost;
 
-        // Create and save the invoices in Invoices object
-        $invoices = new Invoices();
-        // $invoices->name = $customer->name;
-        $invoices->customer_id = $customer->id;
-        $invoices->invoices_number = $invoices_number;
-        $invoices->services = implode(', ', $subServices->pluck('subName')->toArray());
+        // Create and save the invoice in the Invoices table
+        $invoice = new Invoices();
+        $invoice->customer_id = $customer->id;
+        $invoice->invoices_number = $invoices_number;
+        $invoice->date = now()->toDateString(); 
+        $invoice->time = now()->toTimeString();
+        $invoice->cost = $totalCost;
+        $invoice->save();
 
-        // now is to get current date and time, toDateString and toTimeString is for format them to string
-        $invoices->date = now()->toDateString(); 
-        $invoices->time = now()->toTimeString();
-        $invoices->cost = $totalCost;
-
-        $invoices->save();
+        // Now store sub-services in the invoices_services table
+        foreach ($subServices as $subService) {
+            DB::table('invoices_services')->insert([
+                'invoices_id' => $invoice->id,
+                'sub_services_id' => $subService->id,
+            ]);
+        }
 
         // Pass data to the view
         return view('admin/invoices', [
@@ -88,24 +81,37 @@ class InvoicesController extends Controller
         // return DataTables::of($query)->make(true);
 
         // The invoices table is join the customer table 
-        $query = Invoices::select('invoices.id', 'customer.name', 'invoices.invoices_number', 'invoices.cost', 'invoices.date', 'invoices.time')
+        $query = Invoices::select('invoices.id', 'customer.name', 'invoices.invoices_number', 'invoices.cost', 'invoices.date', 'invoices.time', 'customer_id')
         ->join('customer', 'invoices.customer_id', '=', 'customer.id');
 
         return DataTables::of($query)->make(true);
     }
 
-    public function showCustomerInvoices($customer_id) {
-        $customer = Customers::findOrFail($customer_id);
-        $invoices = $customer->invoices; 
+    public function showCustomerInvoices($id) {
+        // dd($customer_id);
+        $invoice = Invoices::where('invoices.id', $id)
+            ->join('customer', 'invoices.customer_id', '=', 'customer.id')
+            ->select('invoices.*', 'customer.name')
+            ->first();
 
-        $invoice = $invoices->first();
+        // // Extract specific invoice details
+        // $date = $invoice->date;
+        // $invoiceNumber = $invoice->invoices_number;
+        // $subServices = $invoice->subServices; 
+        // // dd($subServices);
+        // $totalCost = $invoice->cost;
+
+        // Fetch the data from invoices_services table
+        $subServices = Invoices_Services::where('invoices_services.id', $id)
+            ->join('sub_services', 'invoices_services.sub_services_id', '=', 'sub_services.id')
+            ->select('sub_services.subName', 'sub_services.subCost')
+            ->get();
 
         // Extract specific invoice details
         $date = $invoice->date;
         $invoiceNumber = $invoice->invoices_number;
-        $subServices = $invoice->subServices; 
         $totalCost = $invoice->cost;
         
-        return view('admin/view-invoices', compact('customer', 'date', 'invoiceNumber', 'subServices', 'totalCost'));
+        return view('admin/view-invoices', compact('invoice', 'date', 'invoiceNumber', 'subServices', 'totalCost'));
     }
 }

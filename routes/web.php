@@ -13,6 +13,7 @@ use App\Http\Controllers\HairCutterController;
 use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\CustomersProductsController;
 use App\Http\Controllers\InvoicesController;
+use App\Http\Controllers\InvoicesServicesController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\ServicesController;
