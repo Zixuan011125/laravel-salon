@@ -3,6 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Appointments;
+use App\Models\Customers;
+use App\Models\CustomersProducts;
+use App\Models\Employees;
+use App\Models\Invoices;
+use App\Models\Products;
+use App\Models\Services;
+use App\Models\SubServices;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -26,7 +34,15 @@ class AdminController extends Controller
             $user = Admin::where('name', $name)->first();
             if($user && $user->password === $password){
                 Session::flash('success', 'Login successfully');
-                return redirect()->route('dashboard');  // Redirect to the dashboard route  
+                $totalAppointments = Appointments::count();
+                $totalCustomers = Customers::count();
+                $totalBenefits = Invoices::sum('cost');
+                $totalMainServices = Services::count();
+                $totalSubServices = SubServices::count();
+                $totalProducts = Products::count();
+                $totalProductsSold = CustomersProducts::sum('quantity_sold');
+                $totalEmployees = Employees::count();
+                return view('admin/dashboard', compact('totalAppointments', 'totalCustomers', 'totalBenefits', 'totalMainServices', 'totalSubServices', 'totalProducts', 'totalProductsSold', 'totalEmployees'));   
             }else{
                 Session::flash('error', 'wrong password');
                 return redirect()->back();  // Redirect back to login if credentials are incorrect
@@ -43,5 +59,9 @@ class AdminController extends Controller
         Session::flush();
 
         return redirect()->route('adminLogin');
+    }
+
+    public function dashboardAdmin(){
+        return view('admin/dashboard');
     }
 }

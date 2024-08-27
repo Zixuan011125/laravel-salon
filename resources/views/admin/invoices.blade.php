@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {{-- <link rel="stylesheet" href="css/invoices.css"> --}}
+    <link rel="stylesheet" href="{{asset('css/invoices.css')}}">
     <title>Invoices</title>
 </head>
 <body>
@@ -18,7 +19,7 @@
                         <div class="invoice-head">
                             <div class="invoice-head-top">
                                 <div class="invoice-head-top-left text-start">
-                                    {{-- <img src="{{ asset('images/logo.jpg') }}" alt="Logo"> --}}
+                                    <img src="{{ asset('images/logo.jpg') }}" alt="Logo">
                                 </div>
                                 <div class="invoices-head-top-right text-end">
                                     <h3>Invoice</h3>
@@ -33,7 +34,7 @@
                                 <div class="invoice-head-middle-right text-end">
                                     <p><span class="text-bold">Invoice No:</span> {{ $invoiceNumber }}</p>
                                 </div>
-                                <div class="hr"></div>
+                                {{-- <div class="hr"></div> --}}
                                 <div class="invoice-head-bottom">
                                     <div class="invoice-head-bottom-left">
                                         <ul>

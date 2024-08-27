@@ -138,3 +138,5 @@ Route::get('/customer/{customer_id}/invoices', [InvoicesController::class, 'show
 Route::get('/invoices-list', [InvoicesController::class, 'showAllInvoices'])->name('showAllInvoices');
 
 Route::get('/service-reports', [ReportsController::class, 'serviceReports'])->name('serviceReports');
+
+Route::get('/dashboard', [AdminController::class, 'dashboardAdmin'])->name('dashboardAdmin');
