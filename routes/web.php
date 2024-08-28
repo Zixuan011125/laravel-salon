@@ -99,6 +99,7 @@ Route::get('/hair-cutter',[HairCutterController::class,'showHairCutter'])->name(
 Route::get('/appointments',[AppointmentsController::class,'showAppointmentsForm'])->name('showAppointmentsForm');
 // Route::get('/appointments-services-list',[AppointmentsController::class,'displayServicesInAppointments'])->name('displayServicesInAppointments');
 Route::post('submit-appointments',[AppointmentsController::class, 'bookAppointments'])->name('bookAppointments');
+Route::post('/cancel-appointments/{id}', [AppointmentsController::class, 'cancelAppointments'])->name('cancelAppointments');
 
 // Route for appointments of admin side
 Route::get('/appointments-list',[AdminAppointmentsController::class,'showAppointmentsList'])->name('showAppointmentsList');

@@ -74,8 +74,50 @@ class AppointmentsController extends Controller
         $username = session('user');
 
         // Filter the appointments based on the logged-in user's name   
-        $appointments = Appointments::where('name', $username)->select('id', 'name', 'date', 'time', 'services')->get();
+        $appointments = Appointments::where('name', $username)->get();
+        
+        // ->select('id', 'name', 'date', 'time', 'services')->get();
+
+        // Iterate over the appointments to retrieve the services names
+        foreach($appointments as $appointment){
+            // Split the comma-separated service ID
+            $serviceID = explode(', ', $appointment->services);
+
+            // Fetch the related services names 
+            $servicesNames = SubServices::whereIn('id', $serviceID)
+                ->pluck('subName')
+                ->toArray();
+
+            // Join the service names into a string and attach it to the appointment
+            $appointment->service_names = implode(', ', $servicesNames);
+        }
 
         return view('order', compact('appointments'));
+    }
+
+    public function cancelAppointments($id){
+        // Fetch the appointments
+        $appointment = Appointments::where('id', $id)->first();
+
+        // dd($appointment);
+
+        // Get appointment date 
+        $appointmentDate = $appointment->date;
+
+        // Get today date
+        $today = date('Y-m-d');
+
+        // Calculate the date (for one day before the appointment date)
+        $oneDay = date('Y-m-d', strtotime($appointmentDate . ' -1 day'));
+
+        // Check condition
+        if($today >= $oneDay){
+            return redirect()->back()->with('error', 'You cannot cancel an appointment one day before or on the appointment date.');
+        }
+
+        // Proceed with cancellation
+        $appointment->delete();
+
+        return redirect()->route('appointmentsHistory');
     }
 }
