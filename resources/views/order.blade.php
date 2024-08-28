@@ -16,12 +16,12 @@
         <table>
             <thead>
                 <tr>
-                    <th style="color: black">Appointment ID</th>
+                    {{-- <th style="color: black">Appointment ID</th> --}}
                     <th style="color: black">Name</th>
                     <th style="color: black">Date</th>
                     <th style="color: black">Time</th>
                     <th style="color: black">Service</th>
-                    <th style="color: black">Product</th>
+                    {{-- <th style="color: black">Product</th> --}}
                     <th style="color: black">Action</th>
                 </tr>
             </thead>
@@ -33,12 +33,12 @@
                         $today = strtotime('today');
                     @endphp
                     <tr>
-                        <td style="color: black">{{ $appointment->appointment_id }}</td>
+                        {{-- <td style="color: black">{{ $appointment->appointment_id }}</td> --}}
                         <td style="color: black">{{ $appointment->name }}</td>
                         <td style="color: black">{{ $appointment->date }}</td>
                         <td style="color: black">{{ $appointment->time }}</td>
                         <td style="color: black">{{ $appointment->service_name }}</td>
-                        <td style="color: black">{{ $appointment->product_name }}</td>
+                        {{-- <td style="color: black">{{ $appointment->product_name }}</td> --}}
                     </tr>
                 @endforeach
             </tbody>

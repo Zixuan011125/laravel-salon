@@ -66,7 +66,7 @@ class AppointmentsController extends Controller
         $appointments->time = $time;
         $appointments->save();
 
-        return redirect()->back();
+        return redirect()->route('home');
     }
 
     public function appointmentsHistory(){

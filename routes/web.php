@@ -85,7 +85,7 @@ Route::post('/add-employees',[EmployeesController::class,'addEmployees'])->name(
 Route::get('/show-employees',[EmployeesController::class,'showAllEmployees'])->name('showAllEmployees');
 Route::get('/go-update/{id}/edit',[EmployeesController::class,'showUpdateEmployeesForm'])->name('showUpdateEmployeesForm');
 Route::post('/employees/{id}/edit',[EmployeesController::class,'updateEmployees'])->name('updateEmployees.edit');
-Route::post('/delete-employees', [EmployeesController::class, 'deleteEmployees'])->name('deleteEmployees');
+Route::get('/delete-employees/{id}', [EmployeesController::class, 'deleteEmployees'])->name('deleteEmployees');
 
 // Route for customer side
 Route::get('/services-list',[CustomerSideServicesController::class, 'displayServices'])->name('displayServices');

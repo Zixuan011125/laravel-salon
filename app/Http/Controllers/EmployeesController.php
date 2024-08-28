@@ -50,12 +50,19 @@ class EmployeesController extends Controller
         return redirect()->route('showAllEmployees');
     }
 
-    public function deleteEmployees(Request $request){
+    public function deleteEmployees(Request $request, $id){
+        // dd($id);
         $employeeID = request()->id;
-        $employee = Employees::find($employeeID);
+
+        // dd($employeeID);
+        $employee = Employees::where('id', $employeeID)->first();
+        // dd($employee);
+        // dd($employee == NULL);
         if($employee !== NULL){
             $employee->delete();
         }
+
+        // dd($request);
 
          return redirect()->route('showAllEmployees')->with('success', 'Employee deleted successfully');
     }
