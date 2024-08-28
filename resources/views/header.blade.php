@@ -14,12 +14,12 @@
             <li><a href="{{ route('home') }}">Home</a></li>
             <li><a href="{{ route('services') }}">Services</a></li>
             <li><a href="{{ route('products') }}">Products</a></li>
-            <li><a href="{{route('showAboutUs')}}">About</a></li>
+            {{-- <li><a href="{{route('showAboutUs')}}">About</a></li> --}}
             <li><a href="{{ route('showCalendarDate') }}">Booking</a></li>
-            {{-- <li><a href="">Reviews</a></li> --}}
+            <li><a href="{{route('showReviews')}}">Reviews</a></li>
             @if(session('user'))
                 <li>
-                    <a href="#">Profile</a>
+                    <a href="#">Profile</a> 
                     <ul>
                         <li><a href="{{ route('appointmentsHistory', ['user' => session('user')]) }}">Appointments</a></li>
                         <li><a href="{{ route('logout') }}">Logout</a></li>

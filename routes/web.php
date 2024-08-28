@@ -17,6 +17,7 @@ use App\Http\Controllers\InvoicesController;
 use App\Http\Controllers\InvoicesServicesController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ReportsController;
+use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\SubServicesController;
 use App\Http\Controllers\timeSlotController;
@@ -146,3 +147,8 @@ Route::get('/service-reports', [ReportsController::class, 'serviceReports'])->na
 Route::get('/dashboard', [AdminController::class, 'dashboardAdmin'])->name('dashboardAdmin');
 
 Route::get('/about-us', [AboutController::class, 'showAboutUs'])->name('showAboutUs');
+
+Route::get('/review', [ReviewsController::class, 'showReviews'])->name('showReviews');
+Route::get('/add-reviews-form', [ReviewsController::class, 'addReviewsForm'])->name('addReviewsForm');
+Route::post('/add-reviews', [ReviewsController::class, 'addReviews'])->name('addReviews');
+Route::get('/show-reviews', [ReviewsController::class, 'showAllReviews'])->name('showAllReviews');
