@@ -10,6 +10,7 @@ use App\Models\Invoices_Services;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
+use Barryvdh\Snappy\Facades\SnappyPdf as PDF;
 
 class InvoicesController extends Controller
 {
@@ -124,5 +125,13 @@ class InvoicesController extends Controller
         $totalCost = $invoice->cost;
         
         return view('admin/view-invoices', compact('invoice', 'date', 'invoiceNumber', 'subServices', 'totalCost', 'products'));
+    }
+
+    public function generateInvoicesPdf(){
+        // $snappy = new Pdf('/usr/local/bin/wkhtmltopdf');
+
+        // // $html = view('invoices', compact('data'))->render;
+
+        // // header('Content-Type: invoices/pdf');
     }
 }

@@ -137,6 +137,7 @@ Route::get('/generate-invoice/{customer_id}', [InvoicesController::class, 'gener
 
 Route::get('/customer/{customer_id}/invoices', [InvoicesController::class, 'showCustomerInvoices'])->name('showCustomerInvoices');
 // Route::get('/invoice/{invoice_id}/view', [InvoicesController::class, 'showInvoice'])->name('showInvoice');
+Route::get('/generate-invoices-pdf', [InvoicesController::class, 'generateInvoicesPdf'])->name('generateInvoicesPdf');
 
 Route::get('/invoices-list', [InvoicesController::class, 'showAllInvoices'])->name('showAllInvoices');
 

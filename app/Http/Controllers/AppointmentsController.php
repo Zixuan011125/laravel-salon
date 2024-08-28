@@ -94,7 +94,7 @@ class AppointmentsController extends Controller
 
         return view('order', compact('appointments'));
     }
-
+    
     public function cancelAppointments($id){
         // Fetch the appointments
         $appointment = Appointments::where('id', $id)->first();
