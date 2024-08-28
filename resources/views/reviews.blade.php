@@ -38,5 +38,9 @@
             <p>No reviews yet.</p>
         @endif
     </div>
+
+    <br><br><br><br><br><br><br><br><br><br>
+
+    @include('footer')
 </body>
 </html>

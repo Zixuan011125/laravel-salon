@@ -15,10 +15,10 @@
     <div class="container">
         <br>
         <div class="main-container">
-            <br><br>
+            <br>
             <h1 style="color: black; text-align: center">Please select available time slot</h1>
 
-            <br>br
+            <br><br>
             
             <div class="time-slots" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 960px; margin: 0 auto;">
                 @foreach($availableTimeSlots as $index => $timeSlot)
@@ -32,5 +32,9 @@
             </div>
         </div>
     </div>
+
+    <br><br>
+
+    @include('footer')
 </body>
 </html>

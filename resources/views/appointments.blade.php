@@ -59,6 +59,10 @@
             <button type="submit">Book Appointment</button>
         </form>
     </div>
+    
+    <br><br>
+
+    @include('footer')
 </body>
 
 </html>
