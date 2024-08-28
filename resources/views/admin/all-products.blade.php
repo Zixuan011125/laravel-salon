@@ -77,7 +77,8 @@
                         name: 'action',
                         render: function(data, type, row){
                             // return '<a href="' + '{{ route("assignServicesForm", ":id") }}'.replace(':id', row.id) + '" class="btn btn-primary btn-sm">Assign Services</a>';
-                            return '<a href="' + '{{ route("showUpdateProductsForm", ":id") }}'.replace(':id', row.id) + '" class="btn btn-primary btn-sm">Update</a>';
+                            return '<a href="' + '{{ route("showUpdateProductsForm", ":id") }}'.replace(':id', row.id) + '" class="btn btn-primary btn-sm">Update</a>' +
+                                   '<a href="' + '{{ route("deleteProducts", ":id") }}'.replace(':id', row.id) + '" class="btn btn-danger btn-sm" style="margin-left: 20px">Delete</a>';;
                         }
                     }
                 ]

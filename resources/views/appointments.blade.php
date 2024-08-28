@@ -33,8 +33,11 @@
             <label for="email">Email:</label>
             <input type="email" name="email" value="{{ session('user.email') }}" readonly>
             <br>
-            <label for="hair_cutter">Name of Hair Cutter:</label>
-            <input type="text" name="hair_cutter" value="{{ $hairCutter->name }}" readonly>
+            {{-- <label for="hair_cutter">Name of Hair Cutter:</label>
+            <input type="text" name="employee_id" value="{{ $hairCutter->name }}" readonly> --}}
+            <label for="employee_id">Name of Hair Cutter:</label>
+            <input type="hidden" name="employee_id" value="{{ $hairCutter->id }}">
+            <input type="text" value="{{ $hairCutter->name }}" readonly>
             <br>
             <label for="services">Services:</label>
             <br>
