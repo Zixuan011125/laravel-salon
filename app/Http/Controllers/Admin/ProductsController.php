@@ -94,12 +94,12 @@ class ProductsController extends Controller
         return redirect()->route('showProducts');
     }
 
-    public function deleteProducts(Request $request){
+    public function deleteProducts(Request $request, $id){
         $productID = request()->id;
-        $product = Products::find($productID);
+        $product = Products::where('id', $productID)->first();
         if($product !== NULL){
             $product->delete();
-        }
+        }   
 
         return redirect()->route('showProducts');
     }

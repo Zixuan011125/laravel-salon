@@ -110,7 +110,7 @@ Route::get('/show-products',[ProductsController::class,'showProducts'])->name('s
 Route::get('/products',[ProductsController::class,'showProductsForm'])->name('showProductsForm');
 Route::get('/update/{id}/edit',[ProductsController::class,'showUpdateProductsForm'])->name('showUpdateProductsForm');
 Route::post('/update-products/{id}',[ProductsController::class,'updateProducts'])->name('updateProducts');
-Route::post('/delete-products',[ProductsController::class,'deleteProducts'])->name('deleteProducts');
+Route::get('/delete-products/{id}',[ProductsController::class,'deleteProducts'])->name('deleteProducts');
 
 // Route for products of admin side
 Route::get('/sell-products-form/{customer_id}', [CustomersProductsController::class, 'sellProductsForm'])->name('sellProductsForm');
