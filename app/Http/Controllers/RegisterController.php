@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Register;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
@@ -39,7 +40,7 @@ class RegisterController extends Controller
         // name, email and password which are pointed by the register is table column name
         $register->name = $name;
         $register->email = $email;
-        $register->password = $password;
+        $register->password = Hash::make($password);
         // $register->password = bcrypt($request->password); // Hashing password
         $register->save();
 
@@ -72,7 +73,7 @@ class RegisterController extends Controller
         // Find user first, then compare the password, Register is the model
         $user = Register::where('name', $name)->first();
 
-        if ($user && $user->password === $password) {
+        if ($user && Hash::check($password, $user->password)) {
             // Store the user in session
             session([
                 'user.name' =>$user->name,
