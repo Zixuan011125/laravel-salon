@@ -37,7 +37,7 @@
                                 <td>{{htmlspecialchars($subService->subCost)}}</td>
                                 <td>
                                     <!-- Font Awesome icon with Bootstrap Tooltip -->
-                                    <i class="fas fa-info-circle" data-bs-toggle="tooltip" data-bs-placement="left" title="{{ htmlspecialchars($subService->description) }}"></i>
+                                    {{-- <i class="fas fa-info-circle" data-bs-toggle="tooltip" data-bs-placement="left" title="{{ htmlspecialchars($subService->description) }}"></i> --}}
                                 </td>
                             </tr>
                         @endforeach

@@ -8,10 +8,40 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/footer.css"> 
+    <style>
+        .swal2-container {
+            margin-top: 100px !important; /* Adjust the margin as needed */
+            margin-right: 10px !important;
+        }
+    </style>
     <title>FOREVER18 Hair Salon</title>
 </head>
 
 <body>
+
+    @if (session('login_success'))
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            Swal.fire({
+                toast: true,
+                position: 'top-end',
+                icon: 'success',
+                title: `Welcome back, {{ session('login_success') }}`,
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+            }).then(() => {
+                setTimeout(function() {
+                    window.location.href = "{{ route('home') }}";
+                }, 500); // Adjust the delay as needed
+            });
+        });
+    </script>
+    @endif
+
+
+
     <!-- <form action="{{ route('sendForm') }}" method="post">
         @csrf
         <label>Name</label>

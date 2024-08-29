@@ -15,6 +15,11 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
+        .swal2-container {
+            margin-top: 100px !important; /* Adjust the margin as needed */
+            margin-right: 10px !important;
+        }
     </style>
     <title>Appointments Form</title>
 </head>
@@ -65,21 +70,27 @@
     @include('footer')
 
     @if (session('booking_success'))
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            Swal.fire({
-                toast: true,
-                position: 'top-end',
-                icon: 'success',
-                title: '{{ session('booking_success') }}',
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-            });
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        Swal.fire({
+            toast: true,
+            position: 'top-end',
+            icon: 'success',
+            title: '{{ session('booking_success') }}',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+        }).then(() => {
+            // After the toast is done, redirect to the home page
+            setTimeout(function() {
+                window.location.href = "{{ route('home') }}";
+            }, 500); // Adjust the delay if needed
         });
-    </script>
-    @endif
+    });
+</script>
+@endif
+
 </body>
 
 </html>

@@ -67,7 +67,9 @@ class AppointmentsController extends Controller
         $appointments->save();
 
         // return redirect()->route('home');
-        return redirect()->route('home')->with('booking_success', 'Your appointment has been booked successfully!');
+        // return back()->with('login_success', $user->name);
+        // return redirect()->route('home')->with('booking_success', 'Your appointment has been booked successfully!');
+        return back()->with('booking_success', 'Your appointment has been booked successfully!');
     }
 
     public function appointmentsHistory(){
