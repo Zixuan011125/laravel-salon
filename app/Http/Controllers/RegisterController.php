@@ -80,11 +80,10 @@ class RegisterController extends Controller
             ]);
 
              // Redirect to home with success message
-            // return redirect()->route('home');
             return redirect()->route('home')->with('login_success', $user->name);
         } else {
             // Redirect back with error message
-            return redirect()->route('showLoginForm')->withErrors(['Invalid credentials']);
+            return redirect()->route('showLoginForm')->with('login_error', 'Invalid credentials');
         }
     }
 

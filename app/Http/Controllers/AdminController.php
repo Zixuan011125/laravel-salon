@@ -33,16 +33,7 @@ class AdminController extends Controller
             $password = $request->admin_password;
             $user = Admin::where('name', $name)->first();
             if($user && $user->password === $password){
-                Session::flash('success', 'Login successfully');
-                $totalAppointments = Appointments::count();
-                $totalCustomers = Customers::count();
-                $totalBenefits = Invoices::sum('cost');
-                $totalMainServices = Services::count();
-                $totalSubServices = SubServices::count();
-                $totalProducts = Products::count();
-                $totalProductsSold = CustomersProducts::sum('quantity_sold');
-                $totalEmployees = Employees::count();
-                return view('admin/dashboard', compact('totalAppointments', 'totalCustomers', 'totalBenefits', 'totalMainServices', 'totalSubServices', 'totalProducts', 'totalProductsSold', 'totalEmployees'));   
+                return redirect()->route('dashboardAdmin');
             }else{
                 Session::flash('error', 'wrong password');
                 return redirect()->back();  // Redirect back to login if credentials are incorrect
@@ -62,6 +53,24 @@ class AdminController extends Controller
     }
 
     public function dashboardAdmin(){
-        return view('admin/dashboard');
+        // return view('admin/dashboard');
+        Session::flash('success', 'Login successfully');
+                $totalAppointments = Appointments::count();
+                $totalCustomers = Customers::count();
+                $totalBenefits = Invoices::sum('cost');
+                $totalMainServices = Services::count();
+                $totalSubServices = SubServices::count();
+                $totalProducts = Products::count();
+                $totalProductsSold = CustomersProducts::sum('quantity_sold');
+                $totalEmployees = Employees::count();
+                return view('admin/dashboard', compact(
+                    'totalAppointments', 
+                    'totalCustomers', 
+                    'totalBenefits', 
+                    'totalMainServices', 
+                    'totalSubServices', 
+                    'totalProducts', 
+                    'totalProductsSold', 
+                    'totalEmployees'));   
     }
 }
